@@ -1,7 +1,7 @@
-import { type CreateProductSchemaType } from "@/types/schema/form-schema";
+import { type ProductFormSchemaType } from "@/types/schema/form-schema";
 import { formOptions } from "@tanstack/react-form-nextjs";
 
-const createProductValues: CreateProductSchemaType = {
+const createProductValues: ProductFormSchemaType = {
   product: "",
   company: "",
   price: 0,
