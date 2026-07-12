@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Leather Armchair",
+    "company": "HomeStyle",
+    "description": "Experience ultimate comfort and luxury with our premium leather armchair. Crafted from top-grain genuine leather, this piece combines timeless elegance with modern design sensibilities. The chair features a deep seating area with supportive lumbar cushioning, making it perfect for long hours of relaxation or reading. Its ergonomic design ensures proper spinal alignment while the plush padding provides exceptional comfort throughout the day.\n\nThe armchair is built on a sturdy hardwood frame that guarantees lasting durability and stability. The high-density foam filling maintains its shape over time, preventing the common sagging issue found in cheaper alternatives. Whether you place it in your living room, home office, or bedroom, this armchair becomes the centerpiece of any space with its sophisticated appearance and refined details.\n\nMaintenance is straightforward with easy-to-clean leather surfaces that resist stains and wear. The chair is also available in multiple color options to match your existing decor, from classic brown and black to contemporary gray and burgundy finishes. Each armchair undergoes rigorous quality testing to ensure it meets our high standards before reaching your home.",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 299,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "Modern Sectional Sofa",
+    "company": "ComfortLiving",
+    "description": "Transform your living space with our expansive modern sectional sofa designed for both style and functionality. This L-shaped sectional comfortably seats 6-8 people, making it ideal for entertaining guests or family gatherings. The modular design allows you to customize the configuration to fit your room layout, with options for left or right-facing chaise lounges. Its contemporary silhouette features clean lines and a low-profile backrest that complements modern and transitional interior designs.\n\nPremium fabric upholstery in durable microfiber resists stains, scratches, and everyday wear while maintaining a luxurious soft touch. The deep seating depth of 24 inches combined with 5-inch seat height provides optimal comfort for sitting and lounging. Each cushion is filled with high-resilience foam that slowly rebounds to maintain shape and support, ensuring years of comfortable use without permanent compression or sagging.\n\nThe sectional's robust steel frame and kiln-dried hardwood legs ensure exceptional stability and longevity. Hidden storage compartments beneath each seat section provide convenient space for blankets, magazines, or toys. Available in neutral tones like charcoal, navy, and beige, this sofa seamlessly integrates into any decor while serving as a functional centerpiece for your living area.",
+    "featured": true,
+    "image": "https://plus.unsplash.com/premium_photo-1683121150169-4b0f6c92a3ac?q=80&w=1109&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 899,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "Designer Lounge Chair",
+    "company": "AppliancePro",
+    "description": "Elevate your interior design with the Stoll designer lounge chair, a masterpiece of mid-century modern craftsmanship. This iconic piece features a sculptural curved wooden frame that creates an inviting embrace, combining form and function in perfect harmony. The chair's distinctive cantilevered design allows for 360-degree swivel movement while maintaining exceptional stability through its innovative tension-based construction. Each wooden piece is carefully selected and hand-finished to showcase natural grain patterns and rich tones.\n\nThe seat combines premium woven fabric with plush foam cushioning for all-day comfort during reading, gaming, or conversation. The chair's compact footprint maximizes space efficiency while its timeless design ensures it remains a classic piece that never goes out of style. The open back design adds visual lightness to the room, preventing bulkiness while maintaining structural integrity through precision engineering and quality materials.\n\nHandcrafted by skilled artisans using traditional joinery techniques, each chair undergoes multiple quality checks to ensure perfect alignment and finish. The wooden frame is treated with protective coatings to resist moisture and wear, while the fabric is chosen for its durability and aesthetic appeal. This investment piece will become a treasured addition to your home, bringing both comfort and architectural beauty to any space.",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 450,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "Oak Dining Set",
+    "company": "HomeStyle",
+    "description": "Gather your loved ones around our exquisite oak dining set, featuring a spacious table and four elegantly designed chairs. The table measures 72 inches in length with a 1.5-inch thick solid oak top that provides generous space for meals, work, or entertaining. Crafted from sustainably sourced oak wood, this dining set showcases natural grain variations and a warm honey finish that develops a beautiful patina over time. The table's rounded corners ensure safety while maintaining a sophisticated aesthetic appeal.\n\nEach matching chair features a contoured backrest with ergonomic curves that support proper posture during extended dining sessions. The seats are upholstered in durable linen-blend fabric that combines comfort with easy maintenance. Solid oak frames provide exceptional stability, while the tapered legs add visual lightness and classic charm. The chairs can be stacked for convenient storage when not in use, making this set practical for smaller dining spaces.\n\nThis dining set accommodates 4-6 people comfortably, making it ideal for intimate family dinners or small gatherings. The oak wood's natural durability and resistance to scratches and dents ensure long-lasting use, even with daily wear. Available in multiple finish options including natural oak, walnut stain, and espresso, this dining set becomes the heart of your home where memories are created and cherished moments shared.",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1602872029708-84d970d3382b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 650,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "Modern Kitchen Setup",
+    "company": "AppliancePro",
+    "description": "Create culinary masterpieces in our complete modern kitchen setup, featuring state-of-the-art appliances and premium finishes. This comprehensive package includes a 30-inch induction cooktop, 24-inch under-mount stainless steel sink, and matching stainless steel appliances that blend seamlessly together. The sleek black and stainless steel combination provides a contemporary look while the durable surfaces resist stains, scratches, and easy cleanup. All appliances feature digital controls and energy-efficient designs that modern homeowners demand.\n\nThe kitchen island centerpiece provides ample prep space with a quartz countertop that offers superior durability and elegance. Built-in LED lighting under cabinets and above island ensures perfect illumination for cooking tasks while creating an inviting ambiance. The setup includes a 24-inch French door refrigerator with adjustable shelving, a 60-inch electric range with convection oven, and a built-in microwave drawer for convenient access. Each appliance features intuitive touch controls and smart connectivity options.\n\nEnergy Star certified appliances minimize electricity consumption while maximizing performance. The kitchen's layout follows ergonomic principles with all frequently-used items within easy reach. Premium hardware finishes throughout, including brushed nickel cabinet pulls and modern faucet fixtures, complete the sophisticated aesthetic. This complete kitchen transformation is designed for both professional-grade performance and everyday convenience, making meal preparation a joy rather than a chore.",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1556185781-a47769abb7ee?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 1200,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "Espresso Machine",
+    "company": "ComfortLiving",
+    "description": "Brew café-quality espresso at home with our professional-grade espresso machine featuring built-in conical burr grinder and automatic milk frother. This complete espresso system allows you to create lattes, cappuccinos, and macchiatos with barista-level precision and consistency. The machine's 15-bar Italian pump ensures optimal extraction pressure while the PID temperature control maintains precise brewing temperatures for perfect espresso every time. The integrated 20oz bean hopper with burr grinder eliminates the need for separate grinding equipment, saving counter space and ensuring fresh grounds for each brew.\n\nThe automatic steam wand frother creates silky microfoam with a single touch, perfect for latte art and milk-based drinks. Programmable shot volumes and dual boiler system allow simultaneous espresso brewing and milk steaming without temperature fluctuations. The machine features a removable water reservoir, drip tray, and portafilter for easy cleaning and maintenance. Stainless steel construction and brushed finish complement any kitchen decor while resisting fingerprints and daily wear.\n\nEnergy-saving mode automatically powers down after 30 minutes of inactivity to reduce electricity consumption. The machine includes a built-in cleaning cycle and descaling reminder to maintain optimal performance over time. Compatible with both ground coffee and espresso pods, offering versatility for different brewing preferences. This premium espresso machine brings the art of Italian coffee-making to your home, transforming your morning routine into a luxurious ritual enjoyed daily.",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1740803292374-d942a979c5e3?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 350,
+    "clerkId": "clerkId"
+  },
+  {
+    "name": "Gas Range",
+    "company": "AppliancePro",
+    "description": "Master your cooking with our 5-burner gas range featuring a spacious oven and precision flame control. This professional-grade range combines traditional gas cooking with modern conveniences, including a 6.5 cubic foot oven with convection fan and self-cleaning function. The heavy-duty cast iron grates retain heat efficiently and provide stable support for pots and pans of various sizes. Five precisely calibrated burners, including a powerful 15,000 BTU burner for boiling water quickly, give you complete control over heat for any cooking technique.\n\nThe oven features an interior light, adjustable racks, and a digital clock/timer for precise cooking control. The interior is coated with easy-clean enamel that resists stains and simplifies cleanup. The range's continuous grates allow sliding pots across the surface without lifting, while the front control knobs provide intuitive operation and clear markings for each burner setting. A low broil setting and warming drawer add versatility for different cooking methods and food preparation styles.\n\nEnergy-efficient design minimizes gas consumption while delivering consistent, even heating throughout the cooking chamber. The range includes a child safety lock and automatic ignition system for safe, reliable operation. Stainless steel finish with fingerprint-resistant coating maintains a pristine appearance despite frequent use. This durable, high-performance gas range is built to withstand years of daily cooking while delivering restaurant-quality results in your home kitchen.",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1578845425669-b6562f83b11e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 550,
+    "clerkId": "clerkId"
+  }
+]
