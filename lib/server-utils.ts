@@ -7,17 +7,7 @@ import { auth } from "@clerk/nextjs/server";
 import { updateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import prisma from "./prisma";
-import { validateWithZod } from "./utils";
-
-export async function formatError(error: unknown) {
-  if (error instanceof Error) {
-    console.error("Error: ", error);
-    return { success: false, message: error.message };
-  }
-
-  console.error("Unknown Error: ", error);
-  return { success: false, message: "An unknown error occurred." };
-}
+import { formatError, validateWithZod } from "./utils";
 
 export async function checkAuth() {
   const { userId } = await auth();
