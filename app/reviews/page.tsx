@@ -1,3 +1,10 @@
+import ReviewsPageContainer from "@/components/review/ReviewsPageContainer";
+import { Suspense } from "react";
+
 export default function Reviews() {
-  return <div>Reviews</div>;
+  return (
+    <Suspense>
+      <ReviewsPageContainer />
+    </Suspense>
+  );
 }
