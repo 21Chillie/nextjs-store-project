@@ -20,7 +20,7 @@ type FieldProps = {
   icon?: React.JSX.Element;
 };
 
-export default function NumberField({
+export default function TextField({
   type,
   label,
   placeholder,
