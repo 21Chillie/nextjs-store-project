@@ -24,3 +24,13 @@ export function validateWithZod<T>(schema: ZodType<T>, data: unknown): T {
 
   return result.data;
 }
+
+export async function formatError(error: unknown) {
+  if (error instanceof Error) {
+    console.error("Error: ", error);
+    return { success: false, message: error.message };
+  }
+
+  console.error("Unknown Error: ", error);
+  return { success: false, message: "An unknown error occurred." };
+}

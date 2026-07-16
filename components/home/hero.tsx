@@ -7,24 +7,26 @@ export default function Hero() {
     <section
       id="section-hero"
       className="grid grid-cols-1 gap-6 md:grid-cols-2">
-      <div>
-        <h1 className="text-foreground mb-3 text-4xl md:text-5xl font-bold tracking-tight">
-          Spaces That Spark Joy, Prices That Make Sense.
-        </h1>
+      <div className="flex items-center">
+        <div>
+          <h1 className="text-foreground mb-3 text-4xl font-bold tracking-tight md:text-5xl">
+            Spaces That Spark Joy, Prices That Make Sense.
+          </h1>
 
-        <p className="text-foreground/60 mb-4 text-sm md:text-base leading-normal text-pretty">
-          Your home should work for you, not the other way around. We combine
-          minimalist Scandinavian design principles with smart modern utility,
-          ensuring every piece maximizes your space without draining your
-          wallet.
-        </p>
+          <p className="text-foreground/60 mb-4 max-w-[90%] text-sm leading-normal text-pretty md:text-base">
+            Your home should work for you, not the other way around. We combine
+            minimalist Scandinavian design principles with smart modern utility,
+            ensuring every piece maximizes your space without draining your
+            wallet.
+          </p>
 
-        <Button
-          size={"lg"}
-          className={"flex cursor-pointer items-center gap-2"}>
-          <span>Explore our collections</span>
-          <ArrowRight />
-        </Button>
+          <Button
+            size={"lg"}
+            className={"flex cursor-pointer items-center gap-2"}>
+            <span>Explore our collections</span>
+            <ArrowRight />
+          </Button>
+        </div>
       </div>
 
       <HeroCarousel />

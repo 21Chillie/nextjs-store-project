@@ -33,3 +33,16 @@ export const extendProductFormSchema = ProductFormSchema.extend({
 export type ExtendProductFormSchemaType = z.infer<
   typeof extendProductFormSchema
 >;
+
+export const ReviewFormSchema = z.object({
+  rating: z
+    .number()
+    .min(1, { error: "Rating must be at least 1" })
+    .max(5, "Rating must be at most 5"),
+  comment: z.string().optional().or(z.literal("")),
+  authorName: z.string().min(1, { error: "Author name field is required" }),
+  authorAvatar: z.string().optional().or(z.literal("")),
+  productId: z.string().min(1, { error: "Product ID field is required" }),
+});
+
+export type ReviewFormSchemaType = z.infer<typeof ReviewFormSchema>;

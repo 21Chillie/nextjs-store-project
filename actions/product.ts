@@ -4,10 +4,9 @@ import prisma from "@/lib/prisma";
 import {
   checkAdminAuth,
   deleteImageAction,
-  formatError,
   imageUploadAction,
 } from "@/lib/server-utils";
-import { validateWithZod } from "@/lib/utils";
+import { formatError, validateWithZod } from "@/lib/utils";
 import { ProductServerResponse } from "@/types/global.type";
 import {
   extendProductFormSchema,
@@ -165,7 +164,6 @@ export async function addProduct(
   }
 }
 
-// TODO: finish this
 export async function updateProduct(
   prev: unknown,
   formData: FormData

@@ -1,10 +1,10 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { checkAuth, formatError } from "@/lib/server-utils";
+import { checkAuth } from "@/lib/server-utils";
+import { formatError } from "@/lib/utils";
 import { ProductServerResponse } from "@/types/global.type";
-import { updateTag } from "next/cache";
-import { cacheTag, revalidatePath } from "next/cache";
+import { cacheTag, revalidatePath, updateTag } from "next/cache";
 import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export async function getFavoriteDataById(data: {
