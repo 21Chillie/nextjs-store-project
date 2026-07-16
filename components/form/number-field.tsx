@@ -59,7 +59,7 @@ export default function NumberField({
           disabled={disabled}
           required={required}
           defaultValue={defaultValues}
-          value={state.value}
+          value={state.value === 0 ? undefined : state.value}
           onBlur={handleBlur}
           min={0}
           onChange={(e) => handleChange(e.target.valueAsNumber || 0)}
