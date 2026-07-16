@@ -33,7 +33,7 @@ export default function TableActions({ productId, type }: Props) {
           variant={"ghost"}
           size={"icon"}
           onClick={handleDelete}>
-          <Trash className="text-primary" />
+          <Trash className="text-destructive" />
         </Button>
       </Activity>
 
@@ -41,7 +41,7 @@ export default function TableActions({ productId, type }: Props) {
         <Link
           href={`/admin/products/${productId}/edit`}
           className={buttonVariants({ variant: "ghost", size: "icon" })}>
-          <Edit className="text-primary" />
+          <Edit className="text-foreground" />
         </Link>
       </Activity>
     </>
