@@ -1,13 +1,15 @@
+import { fetchNumItemsInCart } from "@/actions/cart";
 import { Button } from "@/components/ui/button";
 import { auth } from "@clerk/nextjs/server";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 export default async function CartButton() {
-  const numItemsInCart = 10;
-  const { isAuthenticated } = await auth();
+  const { userId } = await auth();
 
-  if (!isAuthenticated) return null;
+  if (!userId) return null;
+
+  const numItemsInCart = await fetchNumItemsInCart(userId);
 
   return (
     <div className="relative">
