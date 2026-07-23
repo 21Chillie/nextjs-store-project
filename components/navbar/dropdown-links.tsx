@@ -46,7 +46,10 @@ async function DynamicDropdownMenu() {
         {navLinks.map(({ href, label }) => {
           const protectedRoute =
             !isAuthenticated &&
-            (label === "favorites" || label === "cart" || label === "orders");
+            (label === "favorites" ||
+              label === "cart" ||
+              label === "orders" ||
+              label === "reviews");
 
           if (!isAdminUser && label === "dashboard") return null;
           if (protectedRoute) return null;

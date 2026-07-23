@@ -132,7 +132,7 @@ export async function addProduct(
   // * Need manually parsed both featured and price property
   // * By default both value are string and need to convert to boolean and number
   const featured = Boolean(rawData.featured);
-  const price = parseInt(rawData.price);
+  const price = parseInt(rawData.price as string);
 
   try {
     const validatedData = validateWithZod<ProductFormSchemaType>(
@@ -171,7 +171,7 @@ export async function updateProduct(
   const userId = await checkAdminAuth();
   const rawData = Object.fromEntries(formData.entries());
   const featured = Boolean(rawData.featured);
-  const price = parseInt(rawData.price);
+  const price = parseInt(rawData.price as string);
 
   try {
     const validatedData = validateWithZod<ExtendProductFormSchemaType>(

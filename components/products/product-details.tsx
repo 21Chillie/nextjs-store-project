@@ -3,18 +3,22 @@ import { getProductRating } from "@/actions/reviews";
 import { ButtonAddCart } from "@/components/global/button-action";
 import ShareButton from "@/components/global/share-button";
 import ButtonToggleFavorite from "@/components/products/button-toggle-favorite";
-import ProductReviews from "@/components/review/ProductReviews";
-import ReviewContainer from "@/components/review/ReviewContainer";
+import ProductReviews from "@/components/review/product-reviews";
+import ReviewContainer from "@/components/review/review-container";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { formatCurrency } from "@/lib/utils";
+import { SignInButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { Star } from "lucide-react";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 export default async function ProductDetails({ id }: { id: string }) {
   const { image, name, company, price, description, featured } =
     await productById(id);
   const { rating, ratingCount } = await getProductRating(id);
+  const { userId } = await auth();
 
   return (
     <>
@@ -88,7 +92,13 @@ export default async function ProductDetails({ id }: { id: string }) {
             </div>
 
             <div>
-              <ButtonAddCart productId={id} />
+              {userId ? (
+                <ButtonAddCart productId={id} />
+              ) : (
+                <SignInButton mode="modal">
+                  <Button>Sign in to add to cart</Button>
+                </SignInButton>
+              )}
             </div>
           </section>
         </div>

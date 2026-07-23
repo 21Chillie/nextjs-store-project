@@ -1,13 +1,13 @@
 "use client";
 
 import { updateProduct } from "@/actions/product";
+import FieldImageUpdate from "@/components/form/image-update-field";
 import { FieldGroup } from "@/components/ui/field";
 import { useUpdateProductForm } from "@/hooks/update-product.hook";
 import { Product } from "@/lib/generated/prisma/client";
 import { ProductServerResponse } from "@/types/global.type";
 import { useActionState, useEffect } from "react";
 import { toast } from "sonner";
-import FieldImageUpdate from "../form/image-update-field";
 
 const initialState: ProductServerResponse = {
   success: false,

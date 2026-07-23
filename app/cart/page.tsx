@@ -1,3 +1,11 @@
+import CartContainer from "@/components/cart/cart-container";
+import { Suspense } from "react";
+
 export default function Cart() {
-  return <div>Cart</div>;
+  return (
+    // Add fallback
+    <Suspense>
+      <CartContainer />
+    </Suspense>
+  );
 }
