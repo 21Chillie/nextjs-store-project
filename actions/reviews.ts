@@ -8,8 +8,8 @@ import {
   ReviewFormSchema,
   ReviewFormSchemaType,
 } from "@/types/schema/form-schema";
-import { auth } from "@clerk/nextjs/server";
-import { revalidatePath } from "next/cache";
+import { cacheTag, revalidatePath, updateTag } from "next/cache";
+import { cacheLife } from "next/dist/server/use-cache/cache-life";
 
 export async function addReview(
   rawData: ReviewFormSchemaType
@@ -36,11 +36,15 @@ export async function addReview(
   } finally {
     revalidatePath(`/products/${rawData.productId}`);
     revalidatePath(`/reviews`);
+    updateTag("reviews-user");
+    updateTag("reviews-product");
   }
 }
 
-export async function getProductReviews(productId: string) {
-  const { userId } = await auth();
+export async function getProductReviews(productId: string, userId: string) {
+  "use cache";
+  cacheLife({ stale: 600, revalidate: 600, expire: 1200 });
+  cacheTag("reviews-product");
 
   try {
     const reviews = await prisma.review.findMany({
@@ -53,7 +57,7 @@ export async function getProductReviews(productId: string) {
           clerkId: userId ? "asc" : "desc",
         },
         {
-          createAt: "desc",
+          createdAt: "desc",
         },
       ],
       include: {
@@ -68,8 +72,10 @@ export async function getProductReviews(productId: string) {
   }
 }
 
-export async function getProductReviewsByUser() {
-  const userId = await checkAuth();
+export async function getProductReviewsByUser(userId: string) {
+  "use cache";
+  cacheLife({ stale: 600, revalidate: 600, expire: 1200 });
+  cacheTag("reviews-user");
 
   try {
     const result = await prisma.review.findMany({
@@ -77,7 +83,7 @@ export async function getProductReviewsByUser() {
         clerkId: userId,
       },
       orderBy: {
-        createAt: "desc",
+        createdAt: "desc",
       },
       include: {
         product: {
@@ -157,5 +163,7 @@ export async function deleteReview({
     return { success: false, message: "Failed to delete review" };
   } finally {
     revalidatePath(pathname);
+    updateTag("reviews-user");
+    updateTag("reviews-product");
   }
 }

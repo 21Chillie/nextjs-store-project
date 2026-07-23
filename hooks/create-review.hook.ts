@@ -2,7 +2,7 @@ import { addReview } from "@/actions/reviews";
 import { ButtonReset, ButtonSubmit } from "@/components/form/button-form";
 import TextAreaField from "@/components/form/text-area-field";
 import TextField from "@/components/form/text-field";
-import RatingInput from "@/components/review/RatingInput";
+import RatingInput from "@/components/review/rating-input";
 import {
   ReviewFormSchema,
   ReviewFormSchemaType,
