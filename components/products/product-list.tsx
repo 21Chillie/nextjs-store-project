@@ -23,7 +23,7 @@ export default function ProductList({ products }: { products: Product[] }) {
             render={
               <Link href={`/products/${id}`}>
                 <ItemMedia
-                  className="relative h-48 w-48"
+                  className="relative size-16 md:size-48"
                   variant="image">
                   <Image
                     src={image}
@@ -40,7 +40,7 @@ export default function ProductList({ products }: { products: Product[] }) {
                 </ItemContent>
 
                 <ItemContent className="justify-between">
-                  <h3 className="text-xl font-medium">
+                  <h3 className="text-base font-medium md:text-xl">
                     {formatCurrency(price)}
                   </h3>
                 </ItemContent>

@@ -2,7 +2,7 @@
 
 import { LayoutGrid, LayoutList } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function ButtonToggleView({
   view = "grid",
