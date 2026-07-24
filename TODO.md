@@ -1,0 +1,5 @@
+- Create model
+- Create action for create user cart order (it will reset cart and remove all cart items in the end)
+- By default isPaid column value will be true (will refactor it later after implement payment features)
+- Create action for fetching user orders (This is only per user)
+- Create action for fetching user orders for admin sales page (This is only where user is paid)

@@ -50,7 +50,7 @@ export async function getUserCart(userId: string) {
     include: {
       cartItems: {
         orderBy: {
-          createdAt: "asc",
+          createdAt: "desc",
         },
         include: {
           product: {
