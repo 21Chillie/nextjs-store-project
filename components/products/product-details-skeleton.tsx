@@ -44,12 +44,7 @@ export default function ProductDetailsSkeleton() {
             <Skeleton className="mb-4 h-6 w-32" />
             <Separator className="my-4" />
             <div className="prose prose-sm text-muted-foreground max-w-none">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <Skeleton
-                  key={i}
-                  className="mb-4 h-3 w-full text-sm"
-                />
-              ))}
+              <Skeleton className="mb-4 h-24 w-full text-sm" />
             </div>
           </div>
 
@@ -62,15 +57,15 @@ export default function ProductDetailsSkeleton() {
       {/* Customer Review Section */}
       <section className="mt-12 space-y-6">
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <Skeleton className="h-8 w-48" />
+          <div className="flex items-center justify-between gap-4">
+            <Skeleton className="h-12 w-28 md:h-8 md:w-48" />
             <Skeleton className="h-10 w-28" />
           </div>
           <div className="bg-muted h-px w-full" />
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+          {Array.from({ length: 6 }).map((_, i) => (
             <ReviewCardSkeleton key={i} />
           ))}
         </div>
