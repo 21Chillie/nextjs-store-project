@@ -28,7 +28,7 @@ export function useCartAction({ id, initialAmount }: HookOptions) {
       setAmount(initialAmount);
       toast.error(result.message);
     }
-  }, 900);
+  }, 500);
 
   const handleAmountChange = (newAmount: number) => {
     setAmount(newAmount);
