@@ -15,6 +15,15 @@ export function formatCurrency(amount?: number): string {
   }).format(value);
 }
 
+export function formatDate(date: Date) {
+  const dateString = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  return dateString;
+}
+
 export function validateWithZod<T>(schema: ZodType<T>, data: unknown): T {
   const result = schema.safeParse(data);
 
