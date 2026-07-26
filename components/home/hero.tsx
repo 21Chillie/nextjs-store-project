@@ -1,6 +1,7 @@
 import HeroCarousel from "@/components/home/hero-carousel";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -20,12 +21,11 @@ export default function Hero() {
             wallet.
           </p>
 
-          <Button
-            size={"lg"}
-            className={"flex cursor-pointer items-center gap-2"}>
-            <span>Explore our collections</span>
-            <ArrowRight />
-          </Button>
+          <Link
+            href={"/products"}
+            className={buttonVariants({ size: "lg", variant: "default" })}>
+            Explore our collections <ArrowRight />
+          </Link>
         </div>
       </div>
 
