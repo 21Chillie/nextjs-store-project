@@ -1,3 +1,11 @@
+import OrderContainer from "@/components/order/order-container";
+import { Suspense } from "react";
+
 export default function Orders() {
-  return <div>Orders</div>;
+  return (
+    // TODO: Add fallback later
+    <Suspense>
+      <OrderContainer />
+    </Suspense>
+  );
 }

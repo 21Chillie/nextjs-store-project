@@ -13,19 +13,20 @@ datasource db {
 }
 
 model Product {
-  id          String     @id @default(uuid())
+  id          String      @id @default(uuid())
   name        String
   company     String
   description String
   featured    Boolean
   image       String
   price       Int
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
   clerkId     String
   favorites   Favorite[]
   reviews     Review[]
   cartItems   CartItem[]
+  orderItems  OrderItem[]
 }
 
 model Favorite {
@@ -81,4 +82,60 @@ model CartItem {
   updatedAt DateTime @updatedAt
 
   @@unique([cartId, productId])
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELED
+}
+
+model Order {
+  id         String      @id @default(uuid())
+  clerkId    String
+  orderItems OrderItem[]
+
+  // Cart total snapshot
+  subTotal       Int
+  shipping       Int @default(0)
+  tax            Int @default(0)
+  orderTotal     Int
+  numItemsInCart Int
+
+  // Payment & Fulfillment Status
+  status          OrderStatus @default(PENDING)
+  isPaid          Boolean     @default(false)
+  paidAt          DateTime?
+  paymentIntentId String?
+
+  // Shipping Info
+  name    String
+  email   String
+  address String
+  city    String
+  country String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clerkId])
+}
+
+model OrderItem {
+  id      String @id @default(uuid())
+  orderId String
+  order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  // Product Reference
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  // Product data snapshot
+  productName String
+  image       String
+  price       Int
+  quantity    Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

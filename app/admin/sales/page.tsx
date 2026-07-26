@@ -1,3 +1,11 @@
+import AdminSalesOrderContainer from "@/components/admin/admin-sales-order-container";
+import { Suspense } from "react";
+
 export default function AdminSalesPage() {
-  return <div>Admin Sales</div>;
+  return (
+    // TODO: Add fallback later
+    <Suspense>
+      <AdminSalesOrderContainer />
+    </Suspense>
+  );
 }

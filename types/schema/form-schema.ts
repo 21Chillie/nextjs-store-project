@@ -7,7 +7,7 @@ const ACCEPTED_IMAGE_TYPES = [
   "image/png",
   "image/webp",
 ];
-
+// Product Schema
 export const ProductFormSchema = z.object({
   product: z.string().min(1, { error: "Product name field is required" }),
   company: z.string().min(1, { error: "Company field is required" }),
@@ -34,6 +34,7 @@ export type ExtendProductFormSchemaType = z.infer<
   typeof extendProductFormSchema
 >;
 
+// Review Schema
 export const ReviewFormSchema = z.object({
   rating: z
     .number()
@@ -46,3 +47,14 @@ export const ReviewFormSchema = z.object({
 });
 
 export type ReviewFormSchemaType = z.infer<typeof ReviewFormSchema>;
+
+// Order Schema
+export const OrderFormSchema = z.object({
+  name: z.string().min(1, { error: "Name field is required" }),
+  email: z.email().min(1, { error: "Email field is required" }),
+  address: z.string().min(1, { error: "Address field is required" }),
+  city: z.string().min(1, { error: "City field is required" }),
+  country: z.string().min(1, { error: "Country field is required" }),
+});
+
+export type OrderFormSchemaType = z.infer<typeof OrderFormSchema>;

@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { formatCurrency } from "@/lib/utils";
+import CartShippingFormDialog from "./cart-shipping-dialog";
 
 type Props = {
   cartTotal: number;
@@ -57,7 +57,7 @@ export default function CartTotal({
       </CardContent>
 
       <CardFooter className="border-t">
-        <Button className={"block w-full"}>Checkout Order</Button>
+        <CartShippingFormDialog />
       </CardFooter>
     </Card>
   );

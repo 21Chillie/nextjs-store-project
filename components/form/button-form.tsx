@@ -7,6 +7,7 @@ import { Upload } from "lucide-react";
 
 type ButtonProps = {
   label: string;
+  isDisabled?: boolean;
 };
 
 export function ButtonSubmit({ label }: ButtonProps) {
@@ -22,7 +23,7 @@ export function ButtonSubmit({ label }: ButtonProps) {
           disabled={isSubmitting || !canSubmit}>
           {isSubmitting ? (
             <>
-              Uploading
+              Submitting
               <Spinner data-icon="inline-start" />
             </>
           ) : (
@@ -36,13 +37,14 @@ export function ButtonSubmit({ label }: ButtonProps) {
   );
 }
 
-export function ButtonReset({ label }: ButtonProps) {
+export function ButtonReset({ label, isDisabled = false }: ButtonProps) {
   const form = useFormContext();
 
   return (
     <Button
       className={"cursor-pointer"}
       variant={"secondary"}
+      disabled={isDisabled}
       onClick={() => form.reset()}>
       {label}
     </Button>

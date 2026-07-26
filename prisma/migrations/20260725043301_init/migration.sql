@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "OrderStatus" AS ENUM ('PENDING', 'COMPLETED');
+
 -- CreateTable
 CREATE TABLE "Product" (
     "id" TEXT NOT NULL,
@@ -68,6 +71,46 @@ CREATE TABLE "CartItem" (
     CONSTRAINT "CartItem_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Order" (
+    "id" TEXT NOT NULL,
+    "clerkId" TEXT NOT NULL,
+    "subTotal" INTEGER NOT NULL,
+    "shipping" INTEGER NOT NULL DEFAULT 0,
+    "tax" INTEGER NOT NULL DEFAULT 0,
+    "orderTotal" INTEGER NOT NULL,
+    "numItemsInCart" INTEGER NOT NULL,
+    "status" "OrderStatus" NOT NULL DEFAULT 'PENDING',
+    "isPaid" BOOLEAN NOT NULL DEFAULT false,
+    "paidAt" TIMESTAMP(3),
+    "paymentIntentId" TEXT,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "address" TEXT NOT NULL,
+    "city" TEXT NOT NULL,
+    "postalCode" TEXT NOT NULL,
+    "country" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "OrderItem" (
+    "id" TEXT NOT NULL,
+    "orderId" TEXT NOT NULL,
+    "productId" TEXT,
+    "productName" TEXT NOT NULL,
+    "image" TEXT NOT NULL,
+    "price" INTEGER NOT NULL,
+    "quantity" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "OrderItem_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "Favorite_clerkId_productId_key" ON "Favorite"("clerkId", "productId");
 
@@ -75,7 +118,13 @@ CREATE UNIQUE INDEX "Favorite_clerkId_productId_key" ON "Favorite"("clerkId", "p
 CREATE UNIQUE INDEX "Review_clerkId_productId_key" ON "Review"("clerkId", "productId");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Cart_clerkId_key" ON "Cart"("clerkId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "CartItem_cartId_productId_key" ON "CartItem"("cartId", "productId");
+
+-- CreateIndex
+CREATE INDEX "Order_clerkId_idx" ON "Order"("clerkId");
 
 -- AddForeignKey
 ALTER TABLE "Favorite" ADD CONSTRAINT "Favorite_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -88,3 +137,9 @@ ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_productId_fkey" FOREIGN KEY ("pr
 
 -- AddForeignKey
 ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_cartId_fkey" FOREIGN KEY ("cartId") REFERENCES "Cart"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OrderItem" ADD CONSTRAINT "OrderItem_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "OrderItem" ADD CONSTRAINT "OrderItem_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
