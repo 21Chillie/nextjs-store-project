@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { checkAuth } from "@/lib/server-utils";
+import { checkAdminAuth, checkAuth } from "@/lib/server-utils";
 import { formatError } from "@/lib/utils";
 import { ProductServerResponse } from "@/types/global.type";
 import { OrderFormSchemaType } from "@/types/schema/form-schema";
@@ -79,5 +79,46 @@ export async function createOrderFromCart(
   } finally {
     updateTag("num-items-in-cart");
     updateTag("user-cart-list");
+  }
+}
+
+export async function fetchUserOrder() {
+  const userId = await checkAuth();
+
+  try {
+    const order = await prisma.order.findMany({
+      where: {
+        clerkId: userId,
+      },
+      include: {
+        orderItems: true,
+      },
+    });
+
+    return order;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
+export async function fetchAdminSalesOrder() {
+  await checkAdminAuth();
+
+  try {
+    const order = await prisma.order.findMany({
+      where: {
+        isPaid: true,
+        status: "COMPLETED",
+      },
+      include: {
+        orderItems: true,
+      },
+    });
+
+    return order;
+  } catch (err) {
+    console.error(err);
+    return [];
   }
 }
