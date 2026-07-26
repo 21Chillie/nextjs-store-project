@@ -1,4 +1,4 @@
-import { CartItem, Product } from "@/lib/generated/prisma/client";
+import { CartItem, Prisma, Product } from "@/lib/generated/prisma/client";
 
 export type SearchProps = {
   searchParams: Promise<{
@@ -21,3 +21,7 @@ export type CartItemWithProductPrice = CartItem & {
 export type CartItemWithProduct = CartItem & {
   product: Pick<Product, "id" | "name" | "image" | "company" | "price">;
 };
+
+export type OrderWithItems = Prisma.OrderGetPayload<{
+  include: { orderItems: true };
+}>;
