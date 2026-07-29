@@ -3,7 +3,6 @@ import Navbar from "@/components/navbar/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "@wrksz/themes/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
@@ -26,23 +25,19 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "font-sans", geist.variable)}
       suppressHydrationWarning>
       <body className="flex min-h-full flex-col">
-        <ThemeProvider
-          defaultTheme="system"
-          disableTransitionOnChange>
-          <ClerkProvider telemetry={false}>
-            <header>
-              <Navbar />
-            </header>
+        <ClerkProvider telemetry={false}>
+          <header>
+            <Navbar />
+          </header>
 
-            <main className="flex-1 py-8 md:py-12">
-              <Container>{children}</Container>
-            </main>
+          <main className="flex-1 py-8 md:py-12">
+            <Container>{children}</Container>
+          </main>
 
-            <aside>
-              <Toaster />
-            </aside>
-          </ClerkProvider>
-        </ThemeProvider>
+          <aside>
+            <Toaster />
+          </aside>
+        </ClerkProvider>
       </body>
     </html>
   );
