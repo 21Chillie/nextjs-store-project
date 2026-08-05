@@ -115,6 +115,9 @@ model Order {
   city    String
   country String
 
+  // This show the order only for admin
+  isAdminOnly Boolean @default(false)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
