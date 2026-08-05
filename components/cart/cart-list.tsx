@@ -19,7 +19,7 @@ type Props = {
 export default function CartList({ carts }: Props) {
   return (
     <div className="space-y-6">
-      {carts.map(({ id, cartId, product, amount }) => {
+      {carts.map(({ id, product, amount }) => {
         return (
           <Item
             className="hover:bg-secondary"
