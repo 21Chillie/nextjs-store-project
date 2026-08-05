@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { checkAuth } from "@/lib/server-utils";
+import { protectRoute } from "@/lib/protect-route";
 import { formatError } from "@/lib/utils";
 import { ProductServerResponse } from "@/types/global.type";
 import { cacheTag, revalidatePath, updateTag } from "next/cache";
@@ -11,7 +11,7 @@ export async function getFavoriteDataById(data: {
   productId: string;
 }): Promise<boolean> {
   try {
-    const userId = await checkAuth();
+    const userId = await protectRoute();
     const favorite = await prisma.favorite.findUnique({
       where: {
         clerkId_productId: {
@@ -35,7 +35,7 @@ export async function toggleFavorite(data: {
   pathName: string;
 }): Promise<ProductServerResponse> {
   try {
-    const userId = await checkAuth();
+    const userId = await protectRoute()
 
     const isFavorite = await getFavoriteDataById({ productId: data.productId });
 
@@ -101,6 +101,6 @@ export async function getUserFavoritesData(userId: string) {
 }
 
 export async function getFavoritesWithAuth() {
-  const userId = await checkAuth();
+  const userId = await protectRoute()
   return getUserFavoritesData(userId);
 }

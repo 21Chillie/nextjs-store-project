@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Share } from "lucide-react";
+import { Button } from "../ui/button";
 import SocialShareLink from "./social-share-link";
 
 export default function ShareButton({ productId }: { productId: string }) {
@@ -17,11 +17,11 @@ export default function ShareButton({ productId }: { productId: string }) {
           <Button
             className={"cursor-pointer"}
             variant={"secondary"}
-            size={"icon"}>
-            <Share />
-          </Button>
-        }
-      />
+            size={"icon"}
+          />
+        }>
+        <Share />
+      </PopoverTrigger>
 
       <PopoverContent
         align="center"

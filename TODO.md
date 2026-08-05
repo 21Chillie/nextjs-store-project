@@ -1,5 +1,8 @@
 - [x] ~~Create model~~
 - [x] ~~Create action for create user cart order (it will reset cart and remove all cart items in the end)~~
-- [x] ~~By default isPaid column value will be true (will refactor it later after implement payment features)~~. Change isPaid default values to false, user can proceed payment after create order and pay in `/order` path
-- Create action for fetching user orders (This is only per user)
-- Create action for fetching user orders for admin sales page (This is only where user is paid)
+- [x] ~~By default isPaid column value will be true (will refactor it later after implement payment features). Change isPaid default values to false, user can proceed payment after create order and pay in `/order` path~~
+- [x] ~~Create action for fetching user orders (This is only per user)~~
+- [x] ~~Create action for fetching user orders for admin sales page (This is only where user is paid)~~
+- [x] Finish todo /orders/page.tsx 
+- [x] Finish todo /admin/sales/page.tsx 
+- [x] Finishing confirm payment 

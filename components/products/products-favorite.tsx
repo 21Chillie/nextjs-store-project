@@ -8,12 +8,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { protectRoute } from "@/lib/protect-route";
 import { formatCurrency } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonToggleFavorite from "./button-toggle-favorite";
 
 export async function ProductsFavorite() {
+  await protectRoute();
   const favorites = await getFavoritesWithAuth();
 
   if (favorites.length === 0) {

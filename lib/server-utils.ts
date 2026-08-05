@@ -3,31 +3,10 @@
 import { getSupabaseClient } from "@/lib/supabase";
 import { ProductServerResponse } from "@/types/global.type";
 import { ProductFormSchema } from "@/types/schema/form-schema";
-import { auth } from "@clerk/nextjs/server";
 import { updateTag } from "next/cache";
-import { redirect } from "next/navigation";
 import prisma from "./prisma";
+import { protectAdminRoute } from "./protect-route";
 import { formatError, validateWithZod } from "./utils";
-
-export async function checkAuth() {
-  const { userId } = await auth();
-
-  if (!userId) {
-    return redirect("/");
-  }
-
-  return userId;
-}
-
-export async function checkAdminAuth() {
-  const userId = await checkAuth();
-
-  if (userId !== process.env.ADMIN_USER_ID) {
-    return redirect("/");
-  }
-
-  return userId;
-}
 
 // Supabase Bucket Action
 const bucketName = "nextjs-store-bucket";
@@ -78,7 +57,7 @@ export async function updateImageAction(data: {
   newImageFile: File;
   productId: string;
 }): Promise<ProductServerResponse> {
-  await checkAdminAuth();
+  await protectAdminRoute();
   console.log(data.newImageFile);
   const imgOnlySchema = ProductFormSchema.pick({ image: true });
   const validatedData = validateWithZod(imgOnlySchema, {

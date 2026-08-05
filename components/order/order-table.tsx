@@ -10,6 +10,7 @@ import { formatCurrency, formatDate } from "@/lib/utils";
 import { OrderWithItems } from "@/types/global.type";
 import { Badge } from "../ui/badge";
 import OrderActions from "./order-actions";
+import OrderDetail from "./order-detail";
 import OrderIdClipboard from "./order-id-clipboard";
 import { OrderItems } from "./order-items";
 
@@ -30,44 +31,50 @@ export default function OrderTable({ tableHead, tableBody }: Props) {
       </TableHeader>
 
       <TableBody>
-        {tableBody.map(
-          ({
+        {tableBody.map((order) => {
+          const {
             id,
             createdAt,
             orderItems,
             numItemsInCart,
             orderTotal,
             status,
-          }) => {
-            return (
-              <TableRow key={`Order-${id}`}>
-                <OrderIdClipboard id={id} />
-                <TableCell>{formatDate(createdAt)}</TableCell>
-                <TableCell>
-                  <OrderItems
-                    numItemsInCart={numItemsInCart}
-                    data={orderItems}
+          } = order;
+
+          return (
+            <TableRow key={`Order-${id}`}>
+              <OrderIdClipboard id={id} />
+              <TableCell>{formatDate(createdAt)}</TableCell>
+              <TableCell>
+                <OrderItems
+                  numItemsInCart={numItemsInCart}
+                  data={orderItems}
+                />
+              </TableCell>
+              <TableCell>{formatCurrency(orderTotal)}</TableCell>
+              <TableCell>
+                <Badge
+                  variant={
+                    (status === "CANCELED" && "destructive") ||
+                    (status === "COMPLETED" && "default") ||
+                    (status === "PENDING" && "secondary") ||
+                    "ghost"
+                  }>
+                  {status}
+                </Badge>
+              </TableCell>
+              <TableCell>
+                <div className="flex items-center gap-2">
+                  <OrderDetail order={order} />
+                  <OrderActions
+                    status={status}
+                    orderId={id}
                   />
-                </TableCell>
-                <TableCell>{formatCurrency(orderTotal)}</TableCell>
-                <TableCell>
-                  <Badge
-                    variant={
-                      (status === "CANCELED" && "destructive") ||
-                      (status === "COMPLETED" && "default") ||
-                      (status === "PENDING" && "secondary") ||
-                      "ghost"
-                    }>
-                    {status}
-                  </Badge>
-                </TableCell>
-                <TableCell>
-                  <OrderActions status={status} />
-                </TableCell>
-              </TableRow>
-            );
-          }
-        )}
+                </div>
+              </TableCell>
+            </TableRow>
+          );
+        })}
       </TableBody>
     </Table>
   );

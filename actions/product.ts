@@ -1,11 +1,8 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import {
-  checkAdminAuth,
-  deleteImageAction,
-  imageUploadAction,
-} from "@/lib/server-utils";
+import { protectAdminRoute } from "@/lib/protect-route";
+import { deleteImageAction, imageUploadAction } from "@/lib/server-utils";
 import { formatError, validateWithZod } from "@/lib/utils";
 import { ProductServerResponse } from "@/types/global.type";
 import {
@@ -16,7 +13,7 @@ import {
 } from "@/types/schema/form-schema";
 import { cacheTag, revalidatePath, updateTag } from "next/cache";
 import { cacheLife } from "next/dist/server/use-cache/cache-life";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 // ---------- READ ACTIONS ----------
 export async function getFeaturedProduct() {
@@ -75,7 +72,7 @@ export async function productById(id: string) {
     },
   });
 
-  if (!product) redirect("/");
+  if (!product) return notFound();
 
   return product;
 }
@@ -103,7 +100,7 @@ export async function getAllProduct() {
 export async function deleteProductById(
   productId: string
 ): Promise<ProductServerResponse> {
-  await checkAdminAuth();
+  await protectAdminRoute();
 
   try {
     const product = await prisma.product.delete({
@@ -126,7 +123,7 @@ export async function addProduct(
   prev: unknown,
   formData: FormData
 ): Promise<ProductServerResponse> {
-  const userId = await checkAdminAuth();
+  const userId = await protectAdminRoute();
   const rawData = Object.fromEntries(formData.entries());
 
   // * Need manually parsed both featured and price property
@@ -168,7 +165,7 @@ export async function updateProduct(
   prev: unknown,
   formData: FormData
 ): Promise<ProductServerResponse> {
-  const userId = await checkAdminAuth();
+  const userId = await protectAdminRoute();
   const rawData = Object.fromEntries(formData.entries());
   const featured = Boolean(rawData.featured);
   const price = parseInt(rawData.price as string);

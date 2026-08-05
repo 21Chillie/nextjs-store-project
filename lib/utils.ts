@@ -67,3 +67,40 @@ export function calculateCartTotals(
     orderTotal,
   };
 }
+
+export async function fetchStripeClientSecret({
+  orderId,
+  email,
+}: {
+  orderId?: string;
+  email?: string;
+}): Promise<string> {
+  try {
+    if (!orderId || !email) {
+      throw new Error("Missing order information or email.");
+    }
+
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ orderId, email }),
+    });
+
+    if (!res.ok) {
+      const error = (await res.json()) as { message: string };
+      throw new Error(error.message);
+    }
+
+    const data = (await res.json()) as { clientSecret: string };
+
+    return data.clientSecret;
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw error;
+    }
+
+    throw new Error("Unknown error during checkout");
+  }
+}

@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "OrderStatus" AS ENUM ('PENDING', 'COMPLETED');
+CREATE TYPE "OrderStatus" AS ENUM ('PENDING', 'COMPLETED', 'CANCELED');
 
 -- CreateTable
 CREATE TABLE "Product" (
@@ -88,8 +88,8 @@ CREATE TABLE "Order" (
     "email" TEXT NOT NULL,
     "address" TEXT NOT NULL,
     "city" TEXT NOT NULL,
-    "postalCode" TEXT NOT NULL,
     "country" TEXT NOT NULL,
+    "isAdminOnly" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

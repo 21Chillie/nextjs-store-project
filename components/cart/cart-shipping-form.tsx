@@ -34,6 +34,7 @@ export default function CartShippingForm() {
                   type="text"
                   disabled={true}
                   label="Email"
+                  placeholder="johndoe@mail.com"
                 />
               )}
             </form.AppField>
@@ -43,7 +44,8 @@ export default function CartShippingForm() {
                 <field.TextField
                   type="text"
                   required={true}
-                  label="Full Name"
+                  label="Receive Name"
+                  placeholder="John Doe"
                 />
               )}
             </form.AppField>
@@ -54,6 +56,7 @@ export default function CartShippingForm() {
                   type="text"
                   required={true}
                   label="Country"
+                  placeholder="e.g. United States"
                 />
               )}
             </form.AppField>
@@ -64,6 +67,7 @@ export default function CartShippingForm() {
                   type="text"
                   required={true}
                   label="City"
+                  placeholder="e.g. New York"
                 />
               )}
             </form.AppField>
@@ -74,6 +78,7 @@ export default function CartShippingForm() {
               <field.TextAreaField
                 required={true}
                 label="Address"
+                placeholder="Streets, house/building No., apartment suite, postal code, etc."
               />
             )}
           </form.AppField>
