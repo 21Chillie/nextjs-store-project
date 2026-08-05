@@ -10,10 +10,10 @@ export default function OrderIdClipboard({ id }: { id: string }) {
 
   return (
     <TableCell
-      className="group cursor-pointer font-mono text-xs whitespace-normal md:max-w-48 md:break-all"
+      className="cursor-pointer font-mono text-xs whitespace-normal md:max-w-36 md:break-all"
       title="Click to copy ID"
       onClick={handleClipboard}>
-      <span className="group-hover:bg-secondary p-1 transition-colors">{id}</span>
+      <span>{id}</span>
     </TableCell>
   );
 }
