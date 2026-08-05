@@ -5,8 +5,7 @@ import ReviewCard from "./review-card";
 type Props = { productId: string };
 
 export default async function ReviewContainer({ productId }: Props) {
-  const user = await auth();
-  const userId = user.userId ?? "";
+  const { userId } = (await auth()) as { userId: string };
   const reviews = await getProductReviews(productId, userId);
 
   if (reviews.length === 0) {
