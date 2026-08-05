@@ -19,7 +19,6 @@ export default function ReviewInput({ productId }: Props) {
         render={
           <Button
             className={"cursor-pointer"}
-            type="button"
             variant={"outline"}>
             Add review
           </Button>
