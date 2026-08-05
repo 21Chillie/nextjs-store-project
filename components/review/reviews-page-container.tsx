@@ -1,10 +1,10 @@
 import { getProductReviewsByUser } from "@/actions/reviews";
 import SectionTitle from "@/components/global/section-title";
 import ReviewsPageCard from "@/components/review/reviews-page-card";
-import { checkAuth } from "@/lib/server-utils";
+import { protectRoute } from "@/lib/protect-route";
 
 export default async function ReviewsPageContainer() {
-  const userId = await checkAuth();
+  const userId = await protectRoute();
   const reviews = await getProductReviewsByUser(userId);
 
   return (
