@@ -12,8 +12,12 @@ import { Show, SignInButton, SignOutButton, UserAvatar } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { TextAlignEnd } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
+import { Spinner } from "@/components/ui/spinner";
 
 export default async function DropdownLinks() {
+  
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -24,9 +28,11 @@ export default async function DropdownLinks() {
           />
         }>
         <TextAlignEnd />
-        <Show when={"signed-in"}>
-          <UserAvatar />
-        </Show>
+        <Suspense fallback={<Spinner />}>
+          <Show when={"signed-in"}>
+            <UserAvatar />
+          </Show>
+        </Suspense>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className={"mt-2"}>
