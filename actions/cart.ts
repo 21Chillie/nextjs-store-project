@@ -2,7 +2,7 @@
 
 import { Cart } from "@/lib/generated/prisma/client";
 import prisma from "@/lib/prisma";
-import { checkAuth } from "@/lib/server-utils";
+import { protectRoute } from "@/lib/protect-route";
 import { calculateCartTotals, formatError } from "@/lib/utils";
 import { ProductServerResponse } from "@/types/global.type";
 import { cacheLife, cacheTag, updateTag } from "next/cache";
@@ -78,7 +78,7 @@ export async function addToCartOrIncreaseAmount({
   amount?: number;
 }): Promise<ProductServerResponse & { cart: Cart | null }> {
   try {
-    const userId = await checkAuth();
+    const userId = await protectRoute();
 
     const updatedCart = await prisma.$transaction(async (tx) => {
       // Check existing user cart or create one
@@ -165,7 +165,7 @@ export async function deleteCartItem(
   id: string
 ): Promise<ProductServerResponse> {
   try {
-    const userId = await checkAuth();
+    const userId = await protectRoute();
 
     return await prisma.$transaction(async (tx) => {
       const deletedItem = await tx.cartItem.delete({
@@ -205,7 +205,7 @@ export async function updateCartItem({
   amount: number;
 }): Promise<ProductServerResponse> {
   try {
-    const userId = await checkAuth();
+    const userId = await protectRoute();
 
     if (amount <= 0) {
       await deleteCartItem(id);
