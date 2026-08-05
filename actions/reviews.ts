@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { checkAuth } from "@/lib/server-utils";
+import { protectRoute } from "@/lib/protect-route";
 import { validateWithZod } from "@/lib/utils";
 import { ProductServerResponse } from "@/types/global.type";
 import {
@@ -15,7 +15,7 @@ export async function addReview(
   rawData: ReviewFormSchemaType
 ): Promise<ProductServerResponse> {
   try {
-    const userId = await checkAuth();
+    const userId = await protectRoute();
     const validateData = validateWithZod(ReviewFormSchema, rawData);
 
     await prisma.review.create({
@@ -100,7 +100,7 @@ export async function getProductReviewsByUser(userId: string) {
 }
 
 export async function getUserReviewByProduct(productId: string) {
-  const userId = await checkAuth();
+  const userId = await protectRoute();
 
   try {
     const userReview = await prisma.review.findFirst({
@@ -147,7 +147,7 @@ export async function deleteReview({
   id: string;
   pathname: string;
 }): Promise<ProductServerResponse> {
-  const userId = await checkAuth();
+  const userId = await protectRoute();
 
   try {
     await prisma.review.delete({
