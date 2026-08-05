@@ -3,7 +3,6 @@ import CartButton from "@/components/navbar/cart-button";
 import DropdownLinks from "@/components/navbar/dropdown-links";
 import NavLogo from "@/components/navbar/nav-logo";
 import NavSearch from "@/components/navbar/nav-search";
-import { ButtonToggleTheme } from "@/components/navbar/toggle-theme";
 import { Button } from "@/components/ui/button";
 import { TextAlignEnd } from "lucide-react";
 import { Suspense } from "react";
@@ -23,8 +22,6 @@ export default function Navbar() {
               <CartButton />
             </Suspense>
           </div>
-
-          <ButtonToggleTheme />
 
           <Suspense
             fallback={
