@@ -141,6 +141,9 @@ export async function fetchAdminSalesOrder() {
       include: {
         orderItems: true,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
 
     return order;
